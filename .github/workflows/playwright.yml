@@ -30,3 +30,18 @@ jobs:
       with:
           name: allure-report
           path: allure-report
+    # 8. Configure GitHub Pages
+    - name: Setup GitHub Pages
+      if: always()
+      uses: actions/configure-pages@v5
+    # 9. Upload report for GitHub Pages
+    - name: Upload Pages Artifact
+      if: always()
+      uses: actions/upload-pages-artifact@v4
+      with:
+          path: allure-report
+    # 10. Deploy report to GitHub Pages
+    - name: Deploy Allure Report
+      if: always()
+      id: deployment
+      uses: actions/deploy-pages@v4
