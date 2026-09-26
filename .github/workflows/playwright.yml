@@ -4,6 +4,8 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+  schedule:
+    - cron: '30 13 * * *'
 jobs:
   test:
     timeout-minutes: 60
@@ -19,9 +21,12 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
+    - name: Generate Allure Report
+      if: always()
+      run: npx allure generate allure-results --clean -o allure-report
+    - name: Upload Allure Report
+      if: always()
+      uses: actions/upload-artifact@v4
       with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+          name: allure-report
+          path: allure-report
