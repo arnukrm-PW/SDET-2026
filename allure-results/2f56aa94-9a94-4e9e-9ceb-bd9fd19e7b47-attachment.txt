@@ -1,7 +1,0 @@
-count: 6
-productName 1 : Sauce Labs Backpack
-productName 2 : Sauce Labs Bike Light
-productName 3 : Sauce Labs Bolt T-Shirt
-productName 4 : Sauce Labs Fleece Jacket
-productName 5 : Sauce Labs Onesie
-productName 6 : Test.allTheThings() T-Shirt (Red)
