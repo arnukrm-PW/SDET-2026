@@ -6,6 +6,10 @@ on:
     branches: [ main, master ]
   schedule:
     - cron: '30 13 * * *'
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 jobs:
   test:
     timeout-minutes: 60
